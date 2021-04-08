@@ -18,7 +18,7 @@
 
 ---
 
-# 💻STUDY
+## 💻STUDY
 
 ### JAVA
 
@@ -34,7 +34,7 @@
 
 ---
 
-# 📢ISSUE
+## 📢ISSUE
 
 ❓ Spring-Boot 에서 JAVA11을 선택하고 실제로 환경에서는 JAVA8을 사용중이면 오류발생
 
