@@ -4,8 +4,12 @@ import java.util.List;
 import java.util.Optional;
 
 public class MemberServiceImpl implements MemberService{
-	private final MemoryMemberRepository memberRepository = new MemoryMemberRepository();
+	private MemberRepository memberRepository;
 
+	//*회원 리포지토리의 코드가 회원 서비스 코드를 DI 가능하게 변경한다
+	public  void MemberService(MemberRepository memberRepository) {
+		 this.memberRepository =  memberRepository;
+	}
 	/**
 	 * 회원가입
 	 */
