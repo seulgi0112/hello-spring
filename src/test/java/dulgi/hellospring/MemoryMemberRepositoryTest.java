@@ -13,6 +13,7 @@ class MemoryMemberRepositoryTest {
 
 	MemoryMemberRepository repository = new MemoryMemberRepository();
 	
+	//테스트는 별도로 동작해야해서 한 테스트 메소드 끝날때마다 데이터 비우기
 	@AfterEach
 	 public void afterEach() {
 		repository.clearStore();
