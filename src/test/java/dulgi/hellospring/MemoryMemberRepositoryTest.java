@@ -13,7 +13,7 @@ class MemoryMemberRepositoryTest {
 
 	MemoryMemberRepository repository = new MemoryMemberRepository();
 	
-	//Å×½ºÆ®´Â º°µµ·Î µ¿ÀÛÇØ¾ßÇØ¼­ ÇÑ Å×½ºÆ® ¸Ş¼Òµå ³¡³¯¶§¸¶´Ù µ¥ÀÌÅÍ ºñ¿ì±â
+	//í…ŒìŠ¤íŠ¸ëŠ” ë³„ë„ë¡œ ë™ì‘í•´ì•¼í•´ì„œ í•œ í…ŒìŠ¤íŠ¸ ë©”ì†Œë“œ ëë‚ ë•Œë§ˆë‹¤ ë°ì´í„° ë¹„ìš°ê¸°
 	@AfterEach
 	 public void afterEach() {
 		repository.clearStore();

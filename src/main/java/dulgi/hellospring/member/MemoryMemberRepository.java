@@ -20,7 +20,7 @@ public class MemoryMemberRepository implements MemberRepository {
 
 	@Override
 	public Optional<Member> findById(Long id) {
-		//NullÀÌ ¹İÈ¯µÉ °¡´É¼ºÀ» È®ÀÎ
+		//Nullì´ ë°˜í™˜ë  ê°€ëŠ¥ì„±ì„ í™•ì¸
 		return Optional.ofNullable(store.get(id));
 	}
 
@@ -28,7 +28,7 @@ public class MemoryMemberRepository implements MemberRepository {
 	public Optional<Member> findByName(String name) {
 		return store.values().stream()
 				 .filter(member -> member.getName().equals(name))
-				 .findAny(); //findAny() : ÇÏ³ª¶óµµ ÀÖÀ¸¸é ¹İÈ¯
+				 .findAny(); //findAny() : í•˜ë‚˜ë¼ë„ ìˆìœ¼ë©´ ë°˜í™˜
 	}
 
 	@Override

@@ -1,67 +1,52 @@
 package dulgi.hellospring;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertThrows;
-
-import org.assertj.core.api.Assertions;
+import static org.junit.jupiter.api.Assertions.*;
+import static org.assertj.core.api.Assertions.*;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import dulgi.hellospring.member.Member;
-import dulgi.hellospring.member.MemberServiceImpl;
 import dulgi.hellospring.member.MemoryMemberRepository;
+import dulgi.hellospring.member.MemberService;
 import net.bytebuddy.implementation.bind.annotation.IgnoreForBinding;
 
 class MemberServiceTest {
 
-	MemberServiceImpl memberService;
+	MemberService memberService;
 	MemoryMemberRepository memberRepository;
-	
-	//Test ¸Ş¼Òµå ½ÇÇà Àü
 	@BeforeEach
 	public void beforeEach() {
 		memberRepository = new MemoryMemberRepository();
-		memberService = new MemberServiceImpl(memberRepository);
+		memberService = new MemberService(memberRepository);
 	}
-	//Test ¸Ş¼Òµå ½ÇÇà ÈÄ
 	@AfterEach
 	public void afterEach() {
 		memberRepository.clearStore();
 	}
-	//È¸¿ø°¡ÀÔ
 	@Test
-	public void join() {
-		//given
+	public void íšŒì›ê°€ì…() throws Exception {
+		//Given
 		Member member = new Member();
 		member.setName("hello");
-		
-		//when
+		//When
 		Long saveId = memberService.join(member);
-		
-		//then
-		Member findMember = memberRepository.findById(member.getId()).get();
+		//Then
+		Member findMember = memberRepository.findById(saveId).get();
 		assertEquals(member.getName(), findMember.getName());
-		Assertions.assertThat(member.getName()).isEqualTo(findMember.getName());	//assertEquals¿Í µ¿ÀÏ
 	}
-	//Áßº¹È¸¿ø¿¹¿Ü
-	@IgnoreForBinding
-	public void dupCheck() {
-		//given
-		String name = "user";
-		
+	@Test
+	public void ì¤‘ë³µ_íšŒì›_ì˜ˆì™¸() throws Exception {
+		//Given
 		Member member1 = new Member();
-		member1.setName(name);
-		
+		member1.setName("spring");
 		Member member2 = new Member();
-		member2.setName(name);
-		
-		//when
+		member2.setName("spring");
+		//When
 		memberService.join(member1);
-		
-		IllegalStateException e = assertThrows(IllegalStateException.class, () -> memberService.join(member2));
-		
-		assertEquals(e.getMessage(), "ÀÌ¹Ì Á¸ÀçÇÏ´Â È¸¿øÀÔ´Ï´Ù.");
+		IllegalStateException e = assertThrows(IllegalStateException.class,
+				() -> memberService.join(member2));//ì˜ˆì™¸ê°€ ë°œìƒí•´ì•¼ í•œë‹¤.
+		assertThat(e.getMessage()).isEqualTo("ì´ë¯¸ ì¡´ì¬í•˜ëŠ” íšŒì›ì…ë‹ˆë‹¤.");
 	}
 
 }

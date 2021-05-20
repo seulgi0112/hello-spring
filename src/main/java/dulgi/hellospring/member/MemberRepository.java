@@ -6,7 +6,7 @@ import java.util.Optional;
 public interface MemberRepository {
 
 	Member save(Member member);
-	//Optional -> nullÀ» ¹İÈ¯ÇÒ¶§
+	//Optional -> nullpoint exceptionì„ ë§‰ì•„ì¤€ë‹¤
 	Optional<Member> findById(Long id);
 	Optional<Member> findByName(String name);
 	List<Member> findAll();

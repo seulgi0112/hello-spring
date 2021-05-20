@@ -6,12 +6,10 @@ import org.springframework.stereotype.Controller;
 @Controller
 public class MemberController {
 	private final MemberService memberService;
-	/*
-	 *  »ı¼ºÀÚ¿¡ @Autowired °¡ ÀÖÀ¸¸é ½ºÇÁ¸µÀÌ ¿¬°üµÈ °´Ã¼¸¦ ½ºÇÁ¸µ ÄÁÅ×ÀÌ³Ê¿¡¼­ Ã£¾Æ¼­ ³Ö¾îÁØ´Ù.
-	 *  ÀÌ·¸°Ô°´Ã¼ ÀÇÁ¸°ü°è¸¦ ¿ÜºÎ¿¡¼­ ³Ö¾îÁÖ´Â °ÍÀ» DI (Dependency Injection), ÀÇÁ¸¼º ÁÖÀÔÀÌ¶ó ÇÑ´Ù.
-	 */
+
+	/* Autowired í•˜ë©´ ìŠ¤í”„ë§ì´ ì—°ê´€ëœ ê°ì²´ë¥¼ ìŠ¤í”„ë§ì»¨í…Œì´ë„ˆì—ì„œ ì°¾ì•„ì„œ ë„£ì–´ì¤€ë‹¤. */
 	@Autowired
 	 public MemberController(MemberService memberService) {
-	 this.memberService = memberService;
+	    this.memberService = memberService;
 	 }
 }
