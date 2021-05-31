@@ -6,6 +6,9 @@ import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 
+import org.springframework.stereotype.Repository;
+
+@Repository
 public class MemoryMemberRepository implements MemberRepository {
 
 	private static Map<Long, Member> store = new HashMap<>();
@@ -20,7 +23,6 @@ public class MemoryMemberRepository implements MemberRepository {
 
 	@Override
 	public Optional<Member> findById(Long id) {
-		//Null이 반환될 가능성을 확인
 		return Optional.ofNullable(store.get(id));
 	}
 
@@ -28,7 +30,7 @@ public class MemoryMemberRepository implements MemberRepository {
 	public Optional<Member> findByName(String name) {
 		return store.values().stream()
 				 .filter(member -> member.getName().equals(name))
-				 .findAny(); //findAny() : 하나라도 있으면 반환
+				 .findAny();
 	}
 
 	@Override
