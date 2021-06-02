@@ -22,7 +22,7 @@ public class JpaMemberRepository implements MemberRepository
 
 	public Optional<Member> findById(Long id) 
 	{
-		Member member = em.find(Member.class, id);
+		Member member = em.find(Member.class, id); //엔티티 조회
 		return Optional.ofNullable(member);
 	}
 
@@ -33,8 +33,10 @@ public class JpaMemberRepository implements MemberRepository
 
 	public Optional<Member> findByName(String name) 
 	{
-		List<Member> result = em.createQuery("select m from Member m where m.name = :name", Member.class)	.setParameter("name", name).getResultList();
+		//List<Member> result = em.createQuery("select m from Member m where m.name = :name", Member.class)	.setParameter("name", name).getResultList();
+		//return result.stream().findAny();
+		Member member = em.find(Member.class, name); //엔티티 조회
+		return Optional.ofNullable(member);
 		
-		return result.stream().findAny();
 	}
 }
