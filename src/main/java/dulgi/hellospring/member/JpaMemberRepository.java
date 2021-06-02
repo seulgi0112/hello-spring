@@ -16,7 +16,7 @@ public class JpaMemberRepository implements MemberRepository
 
 	public Member save(Member member) 
 	{
-		em.persist(member);
+		em.persist(member);	//엔티티 저장
 		return member;
 	}
 
