@@ -11,6 +11,7 @@ import javax.sql.DataSource;
 
 import org.springframework.jdbc.datasource.DataSourceUtils;
 
+//JDBC API 사용 - 요즘에는 사용하지 않는다.
 public class JdbcMemberRepository implements MemberRepository {
 	private final DataSource dataSource;
 
