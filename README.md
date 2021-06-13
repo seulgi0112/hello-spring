@@ -20,6 +20,19 @@
 
 ## 💻STUDY
 
+### 🔥Spring
+- 스프링 빈을 등록하는 두가지 방법
+
+  ✔컴포넌트 스캔과 자동 의존관계 생성 : @Controller, @Service, @Repository(@Component를 포함) 사용하고 
+@Autowired로 의존성 주입, @SpringBootApplication(@Component Scan 포함)이 있는 패키지의 하위패키지에서 Component Scan한다.
+
+  ✔자바 코드로 직접 스프링빈 등록하기  : SpringConfig를 만들어서 @Configuration으로 직접 구현한다. @Bean을 사용해 스프링빈을 등록한다.
+@Controller는 사용해야한다.
+  
+  
+         DI 인젝션하는 법에는 필드주입, 생성자 주입, Setter주입이 있다. 
+  *의존관계가 실행중에 동적으로 변하는 경우는 없으므로 생성자 주입을 추천*
+
 ### 🔥JAVA
 
 - `java.util.Optional<T>` : “존재할 수도 있지만 안 할 수도 있는 객체”, 즉, “null이 될 수도 있는 객체”을 감싸고 있는 일종의 래퍼 클래스입니다. 따라서 Optional 인스턴스는 모든 타입의 참조 변수를 저장할 수 있습니다. 이러한 Optional 객체를 사용하면 예상치 못한 NullPointerException 예외를 제공되는 메소드로 간단히 회피할 수 있습니다.
