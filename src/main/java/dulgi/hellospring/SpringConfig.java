@@ -53,13 +53,5 @@ public class SpringConfig {
 	}
 	*/
 
-
-	/*
-	@Bean
-	public TimeTraceAop timeTraceAop(){
-		return new TimeTraceAop();
-	}
-
-	 */
 	
 }

@@ -6,4 +6,5 @@ import java.util.Optional;
 //SpringData JPA
 public interface SpringDataJpaMemberRepository extends JpaRepository<Member, Long>, MemberRepository {
 	Optional<Member> findByName(String name);
+	Member save(Member member);
 }

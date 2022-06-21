@@ -16,13 +16,13 @@ public class JpaMemberRepository implements MemberRepository
 
 	public Member save(Member member) 
 	{
-		em.persist(member);	//¿£Æ¼Æ¼ ÀúÀå
+		em.persist(member);	//ï¿½ï¿½Æ¼Æ¼ ï¿½ï¿½ï¿½ï¿½ 
 		return member;
 	}
 
 	public Optional<Member> findById(Long id) 
 	{
-		Member member = em.find(Member.class, id); //¿£Æ¼Æ¼ Á¶È¸
+		Member member = em.find(Member.class, id); //ï¿½ï¿½Æ¼Æ¼ ï¿½ï¿½È¸
 		return Optional.ofNullable(member);
 	}
 
@@ -35,7 +35,7 @@ public class JpaMemberRepository implements MemberRepository
 	{
 		//List<Member> result = em.createQuery("select m from Member m where m.name = :name", Member.class)	.setParameter("name", name).getResultList();
 		//return result.stream().findAny();
-		Member member = em.find(Member.class, name); //¿£Æ¼Æ¼ Á¶È¸
+		Member member = em.find(Member.class, name); //ï¿½ï¿½Æ¼Æ¼ ï¿½ï¿½È¸
 		return Optional.ofNullable(member);
 		
 	}

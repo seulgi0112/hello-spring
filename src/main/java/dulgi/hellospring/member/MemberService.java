@@ -21,14 +21,7 @@ public class MemberService {
 		this.memberRepository = memberRepository;
 	}
 
-	/*
-	 * public Long join(Member member) 
-	 * { 
-	 * validateDuplicateMember(member);
-	 * memberRepository.save(member); 
-	 * return member.getId(); 
-	 * }
-	 */
+
 	// �ð� ���� �߰�(AOP)
 	public Long join(Member member) {
 			validateDuplicateMember(member); // 중복 회원 검증
@@ -41,11 +34,7 @@ public class MemberService {
 				member.getName()).ifPresent(m -> {throw new IllegalStateException("이미 존재하는 회원입니다.");});
 	}
 	
-	/*
-	public List<Member> findMembers() {
-		return memberRepository.findAll();
-	}
-	 */
+
 	//�ð� ���� �߰�(AOP)
 	public List<Member> findMembers() {
 			 return memberRepository.findAll();
