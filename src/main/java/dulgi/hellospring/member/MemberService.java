@@ -9,8 +9,8 @@ import dulgi.hellospring.member.Member;
 import dulgi.hellospring.member.MemberRepository;
 
 /*
- * ÇØ´çÅ¬·¡½º°¡ ½ÃÀÛÇÒ¶§ Transaction½ÃÀÛ
- * ¸Ş¼­µå°¡ Á¾·áµÇ¸é Transaction Á¾·á
+ * ï¿½Ø´ï¿½Å¬ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ò¶ï¿½ Transactionï¿½ï¿½ï¿½ï¿½
+ * ï¿½Ş¼ï¿½ï¿½å°¡ ï¿½ï¿½ï¿½ï¿½Ç¸ï¿½ Transaction ï¿½ï¿½ï¿½ï¿½
  */
 @Transactional
 public class MemberService {
@@ -29,24 +29,16 @@ public class MemberService {
 	 * return member.getId(); 
 	 * }
 	 */
-	// ½Ã°£ ÃøÁ¤ Ãß°¡(AOP)
+	// ï¿½Ã°ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ß°ï¿½(AOP)
 	public Long join(Member member) {
-		long start = System.currentTimeMillis();
-		try {
-			validateDuplicateMember(member); // Áßº¹ È¸¿ø °ËÁõ
+			validateDuplicateMember(member); // ì¤‘ë³µ íšŒì› ê²€ì¦
 			memberRepository.save(member);
 			return member.getId();
-		}
-		finally {
-			long finish = System.currentTimeMillis();
-			long timeMs = finish - start;
-			System.out.println("join " + timeMs + "ms");
-		}
 	}
 
 	private void validateDuplicateMember(Member member) {
 		memberRepository.findByName(
-				member.getName()).ifPresent(m -> {throw new IllegalStateException("ÀÌ¹Ì Á¸ÀçÇÏ´Â È¸¿øÀÔ´Ï´Ù.");});
+				member.getName()).ifPresent(m -> {throw new IllegalStateException("ì´ë¯¸ ì¡´ì¬í•˜ëŠ” íšŒì›ì…ë‹ˆë‹¤.");});
 	}
 	
 	/*
@@ -54,17 +46,9 @@ public class MemberService {
 		return memberRepository.findAll();
 	}
 	 */
-	//½Ã°£ ÃøÁ¤ Ãß°¡(AOP)
+	//ï¿½Ã°ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ß°ï¿½(AOP)
 	public List<Member> findMembers() {
-		 long start = System.currentTimeMillis();
-		 try {
 			 return memberRepository.findAll();
-		 } 
-		 finally {
-			 long finish = System.currentTimeMillis();
-			 long timeMs = finish - start;
-			 System.out.println("findMembers " + timeMs + "ms");
-		}
 	}
 	
 	

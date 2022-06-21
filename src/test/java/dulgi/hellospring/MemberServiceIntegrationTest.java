@@ -23,7 +23,7 @@ public class MemberServiceIntegrationTest {
 	MemberRepository memberRepository;
 
 	@Test
-	public void È¸¿ø°¡ÀÔ() throws Exception {
+	public void joinTest() throws Exception {
 		// Given
 		Member member = new Member();
 		member.setName("hello");
@@ -35,7 +35,7 @@ public class MemberServiceIntegrationTest {
 	}
 
 	@Test
-	public void Áßº¹_È¸¿ø_¿¹¿Ü() throws Exception {
+	public void getMemberTest() throws Exception {
 		// Given
 		Member member1 = new Member();
 		member1.setName("spring");
@@ -43,8 +43,8 @@ public class MemberServiceIntegrationTest {
 		member2.setName("spring");
 		// When
 		memberService.join(member1);
-		IllegalStateException e = assertThrows(IllegalStateException.class, () -> memberService.join(member2));// ¿¹¿Ü ¹ß»ý
-		//assertThat Àû¿ë ¾ÈµÊ
-		assertEquals(e.getMessage(), "ÀÌ¹Ì Á¸ÀçÇÏ´Â È¸¿øÀÔ´Ï´Ù." );
+		IllegalStateException e = assertThrows(IllegalStateException.class, () -> memberService.join(member2));// ï¿½ï¿½ï¿½ï¿½ ï¿½ß»ï¿½
+		//assertThat ï¿½ï¿½ï¿½ï¿½ ï¿½Èµï¿½
+		assertEquals(e.getMessage(), "NO" );
 	}
 }

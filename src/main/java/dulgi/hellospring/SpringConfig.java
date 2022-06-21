@@ -3,6 +3,7 @@ package dulgi.hellospring;
 import javax.persistence.EntityManager;
 import javax.sql.DataSource;
 
+import dulgi.hellospring.aop.TimeTraceAop;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
@@ -51,5 +52,14 @@ public class SpringConfig {
 		return new JpaMemberRepository(em);
 	}
 	*/
+
+
+	/*
+	@Bean
+	public TimeTraceAop timeTraceAop(){
+		return new TimeTraceAop();
+	}
+
+	 */
 	
 }
